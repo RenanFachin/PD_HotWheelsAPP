@@ -1,7 +1,8 @@
 import { Car, ChevronRight, Loader } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 import { useForm } from 'react-hook-form'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
+import { toast } from 'sonner'
 import { z } from 'zod'
 
 import { Button } from '@/components/button'
@@ -15,19 +16,29 @@ const signInFormSchema = z.object({
 type SignInFormSchema = z.infer<typeof signInFormSchema>
 
 export function Signin() {
+  // Recebendo o email por query parameter após o registro
+  const [searchParams] = useSearchParams()
+
   const {
     register,
     handleSubmit,
     formState: { isSubmitting },
-  } = useForm<SignInFormSchema>()
+  } = useForm<SignInFormSchema>({
+    defaultValues: {
+      email: searchParams.get('email') ?? '',
+    },
+  })
 
   async function handleSignIn({ email, password }: SignInFormSchema) {
-    await new Promise((resolve) => setTimeout(resolve, 2000))
-    await api.post('/sessions', {
-      email,
-      password,
-    })
-
+    // await new Promise((resolve) => setTimeout(resolve, 2000))
+    try {
+      await api.post('/sessions', {
+        email,
+        password,
+      })
+    } catch (error) {
+      toast.error('Não foi possível se autenticar.')
+    }
     // console.log(data)
   }
 

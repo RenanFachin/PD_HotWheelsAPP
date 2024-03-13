@@ -1,7 +1,7 @@
 import { Car, ChevronRight, Loader } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 import { useForm } from 'react-hook-form'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'sonner'
 import { z } from 'zod'
 
@@ -17,6 +17,8 @@ const signUpFormSchema = z.object({
 type SignUpFormSchema = z.infer<typeof signUpFormSchema>
 
 export function SignUp() {
+  const navigate = useNavigate()
+
   const {
     register,
     handleSubmit,
@@ -32,7 +34,12 @@ export function SignUp() {
         password,
       })
 
-      toast.success('Usuário criado com sucesso!')
+      toast.success('Usuário criado com sucesso!', {
+        action: {
+          label: 'Login',
+          onClick: () => navigate(`/sign-in?email=${email}`),
+        },
+      })
 
       // console.log(data)
     } catch (error) {
