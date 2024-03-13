@@ -2,50 +2,72 @@ import { Car, ChevronRight, Loader } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
+import { toast } from 'sonner'
 import { z } from 'zod'
 
 import { Button } from '@/components/button'
 import { api } from '@/lib/axios'
 
-const signInFormSchema = z.object({
+const signUpFormSchema = z.object({
+  username: z.string(),
   email: z.string().email(),
   password: z.string().min(6),
 })
 
-type SignInFormSchema = z.infer<typeof signInFormSchema>
+type SignUpFormSchema = z.infer<typeof signUpFormSchema>
 
-export function Signin() {
+export function SignUp() {
   const {
     register,
     handleSubmit,
     formState: { isSubmitting },
-  } = useForm<SignInFormSchema>()
+  } = useForm<SignUpFormSchema>()
 
-  async function handleSignIn({ email, password }: SignInFormSchema) {
-    await new Promise((resolve) => setTimeout(resolve, 2000))
-    await api.post('/sessions', {
-      email,
-      password,
-    })
+  async function handleSignUp({ username, email, password }: SignUpFormSchema) {
+    try {
+      // await new Promise((resolve) => setTimeout(resolve, 2000))
+      await api.post('/users', {
+        name: username,
+        email,
+        password,
+      })
 
-    // console.log(data)
+      toast.success('Usuário criado com sucesso!')
+
+      // console.log(data)
+    } catch (error) {
+      toast.error('Não foi possível cadastrar o usuário.')
+    }
   }
 
   return (
     <>
-      <Helmet title="Login" />
+      <Helmet title="Cadastro" />
       <div className="p-8">
         <div className="flex w-[400px] flex-col justify-center gap-6">
           <div className="flex flex-col gap-2 text-center">
             <h1 className="text-2xl font-semibold tracking-tight">
-              Acesse sua conta
+              Criar conta
             </h1>
           </div>
 
           <form
             className="space-y-4 border-b pb-5"
-            onSubmit={handleSubmit(handleSignIn)}
+            onSubmit={handleSubmit(handleSignUp)}
           >
+            <div className="space-y-1">
+              <label htmlFor="email" className="text-xs font-bold">
+                Nome
+              </label>
+              <input
+                type="username"
+                id="username"
+                placeholder="Seu nome"
+                className="border-input  focus-within: flex h-10 w-full rounded-md border bg-primary-200/20 px-3 py-2 text-sm outline-none placeholder:text-primary-300 focus-within:ring-2 focus-within:ring-primary-800 focus-within:ring-offset-2"
+                {...register('username')}
+              />
+            </div>
+
             <div className="space-y-1">
               <label htmlFor="email" className="text-xs font-bold">
                 E-mail
@@ -66,7 +88,7 @@ export function Signin() {
               <input
                 type="password"
                 id="password"
-                placeholder="Sua senha"
+                placeholder="Sua senha deve ter no mínimo 6 caracteres"
                 className="border-input  focus-within: flex h-10 w-full rounded-md border bg-primary-200/20 px-3 py-2 text-sm outline-none placeholder:text-primary-300 focus-within:ring-2 focus-within:ring-primary-800 focus-within:ring-offset-2"
                 {...register('password')}
               />
@@ -78,7 +100,7 @@ export function Signin() {
               type="submit"
             >
               {!isSubmitting ? (
-                <Button.Text>Entrar</Button.Text>
+                <Button.Text>Cadastrar</Button.Text>
               ) : (
                 <Button.Icon>
                   <Loader className="size-6 animate-spin" />
@@ -88,16 +110,16 @@ export function Signin() {
           </form>
 
           <Link
-            to="/sign-up"
+            to="/sign-in"
             className="group mt-5 flex items-center justify-between rounded-md border border-highlight-700/10 bg-highlight-500/5 px-6 py-4 hover:border-highlight-500 hover:brightness-125"
           >
             <div className="flex items-center gap-4">
               <Car className="size-6 text-highlight-300" />
 
               <div className="flex flex-col">
-                <p>Não possui conta?</p>
+                <p>Já possui conta?</p>
                 <span className="text-highlight-300 group-hover:underline group-hover:underline-offset-2">
-                  Criar conta
+                  Acessa a plataforma
                 </span>
               </div>
             </div>

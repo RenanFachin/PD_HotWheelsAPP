@@ -8,6 +8,7 @@ import { AddCars } from '@/pages/app/add-cars'
 import { Cars } from '@/pages/app/cars'
 import { Home } from '@/pages/app/home'
 import { Signin } from '@/pages/auth/sign-in'
+import { SignUp } from '@/pages/auth/sign-up'
 
 export const router = createBrowserRouter([
   // App Routes
@@ -43,6 +44,10 @@ export const router = createBrowserRouter([
       {
         path: '/sign-in',
         element: <Signin />,
+      },
+      {
+        path: '/sign-up',
+        element: <SignUp />,
       },
     ],
   },
