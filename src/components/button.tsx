@@ -8,6 +8,8 @@ const buttonStyle = tv({
       primary:
         'text-primary-500 hover:text-primary-700 hover:border-primary-400',
       secondary: 'bg-highlight-500/80 text-white hover:bg-highlight-300',
+      'secondary-full':
+        'bg-highlight-500/80 text-white hover:bg-highlight-300 w-full',
     },
   },
   defaultVariants: {
@@ -17,7 +19,7 @@ const buttonStyle = tv({
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode
-  variant: 'primary' | 'secondary'
+  variant: 'primary' | 'secondary' | 'secondary-full'
 }
 
 function Button({ children, variant, ...props }: ButtonProps) {
