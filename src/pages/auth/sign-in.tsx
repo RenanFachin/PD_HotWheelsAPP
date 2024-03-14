@@ -8,7 +8,6 @@ import { z } from 'zod'
 
 import { Button } from '@/components/button'
 import { AuthContext } from '@/contexts/auth-context'
-import { api } from '@/lib/axios'
 
 const signInFormSchema = z.object({
   email: z.string().email(),

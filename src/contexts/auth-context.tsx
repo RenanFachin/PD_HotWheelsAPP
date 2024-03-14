@@ -1,6 +1,5 @@
 import Cookies from 'js-cookie'
 import { createContext, ReactNode, useEffect, useState } from 'react'
-import { redirect } from 'react-router-dom'
 
 import { api } from '@/lib/axios'
 

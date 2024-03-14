@@ -1,10 +1,4 @@
-import {
-  ChangeEvent,
-  createContext,
-  ReactNode,
-  useEffect,
-  useState,
-} from 'react'
+import { ChangeEvent, createContext, ReactNode, useState } from 'react'
 import { toast } from 'sonner'
 
 import { CarFormSchema } from '@/components/car-form'
@@ -115,7 +109,7 @@ export function CarsContextProvider({ children }: CarsContextProviderProps) {
         handleDeleteCar,
         handleAddCar,
         handleUpdateCar,
-        fetchCars
+        fetchCars,
       }}
     >
       {children}
