@@ -59,19 +59,23 @@ export function CarDetail({ car }: CarDetailProps) {
 
         <div className="mb-6 mt-10 w-full space-y-1">
           <div className="flex items-center justify-between gap-3">
-            <span className="text-sm text-primary-400">Marca:</span>
+            <span className="text-primaryapp-400 text-sm">Marca:</span>
             <h3 className="text-sm font-bold">{car.brand}</h3>
           </div>
 
           <div className="flex items-center justify-between gap-3">
-            <span className="text-sm text-primary-400">Cor:</span>
+            <span className="text-primaryapp-400 text-sm">Cor:</span>
             <h3 className="text-sm font-bold">{car.color}</h3>
           </div>
         </div>
 
         <div className="flex items-center gap-3">
           <Dialog.Trigger className="flex-1 outline-none">
-            <Button variant="primary" type="button" style={{ width: '100%' }}>
+            <Button
+              variant="primaryapp"
+              type="button"
+              style={{ width: '100%' }}
+            >
               <Button.Icon>
                 <Eye className="size-3" />
               </Button.Icon>
@@ -85,8 +89,8 @@ export function CarDetail({ car }: CarDetailProps) {
 
         <Dialog.Portal>
           <Dialog.Overlay className="fixed inset-0 bg-black/70" />
-          <Dialog.Content className="fixed left-1/2 top-1/2 w-full max-w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-md bg-primary-100 outline-none">
-            <Dialog.Close className="absolute right-0 top-0 bg-slate-800/10 p-1.5 text-primary-600 hover:text-primary-500">
+          <Dialog.Content className="bg-primaryapp-100 fixed left-1/2 top-1/2 w-full max-w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-md outline-none">
+            <Dialog.Close className="text-primaryapp-600 hover:text-primaryapp-500 absolute right-0 top-0 bg-slate-800/10 p-1.5">
               <X className="size-3" />
             </Dialog.Close>
 
@@ -103,27 +107,27 @@ export function CarDetail({ car }: CarDetailProps) {
                 {isEditing ? (
                   <form className="flex flex-col gap-2">
                     <div className="flex items-center justify-between gap-3">
-                      <label className="flex flex-1 items-center justify-between gap-3 text-sm text-primary-400">
+                      <label className="text-primaryapp-400 flex flex-1 items-center justify-between gap-3 text-sm">
                         Marca:
                         <input
                           type="text"
                           name="brand"
                           value={editedBrand}
                           onChange={handleInputChange}
-                          className="border-input focus-within: flex h-10 w-full max-w-40 rounded-md border bg-primary-300/20 px-3 py-2 text-right text-sm font-bold outline-none placeholder:text-primary-300 focus-within:ring-2 focus-within:ring-primary-800 focus-within:ring-offset-2"
+                          className="border-input focus-within: bg-primaryapp-300/20 placeholder:text-primaryapp-300 focus-within:ring-primaryapp-800 flex h-10 w-full max-w-40 rounded-md border px-3 py-2 text-right text-sm font-bold outline-none focus-within:ring-2 focus-within:ring-offset-2"
                         />
                       </label>
                     </div>
 
                     <div className="flex items-center justify-between gap-3">
-                      <label className="flex flex-1 items-center justify-between gap-3 text-sm text-primary-400">
+                      <label className="text-primaryapp-400 flex flex-1 items-center justify-between gap-3 text-sm">
                         Cor:
                         <input
                           type="text"
                           name="color"
                           value={editedColor}
                           onChange={handleInputChange}
-                          className="border-input focus-within: flex h-10 w-full max-w-40 rounded-md border bg-primary-300/20 px-3 py-2 text-right text-sm font-bold outline-none placeholder:text-primary-300 focus-within:ring-2 focus-within:ring-primary-800 focus-within:ring-offset-2"
+                          className="border-input focus-within: bg-primaryapp-300/20 placeholder:text-primaryapp-300 focus-within:ring-primaryapp-800 flex h-10 w-full max-w-40 rounded-md border px-3 py-2 text-right text-sm font-bold outline-none focus-within:ring-2 focus-within:ring-offset-2"
                         />
                       </label>
                     </div>
@@ -149,12 +153,14 @@ export function CarDetail({ car }: CarDetailProps) {
                 ) : (
                   <>
                     <div className="flex items-center justify-between gap-3">
-                      <span className="text-sm text-primary-400">Marca:</span>
+                      <span className="text-primaryapp-400 text-sm">
+                        Marca:
+                      </span>
                       <h3 className="text-sm font-bold">{car.brand}</h3>
                     </div>
 
                     <div className="flex items-center justify-between gap-3">
-                      <span className="text-sm text-primary-400">Cor:</span>
+                      <span className="text-primaryapp-400 text-sm">Cor:</span>
                       <h3 className="text-sm font-bold">{car.color}</h3>
                     </div>
                   </>
@@ -165,7 +171,7 @@ export function CarDetail({ car }: CarDetailProps) {
                 {!isEditing && (
                   <>
                     <Button
-                      variant="primary"
+                      variant="primaryapp"
                       type="button"
                       onClick={() => handleDeleteCar(car.id)}
                       style={{ flex: 1 }}

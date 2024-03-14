@@ -52,7 +52,7 @@ export function CarForm() {
         <input
           type="text"
           id="carName"
-          className="border-input  focus-within: flex h-10 w-full rounded-md border bg-primary-300/20 px-3 py-2 text-sm outline-none placeholder:text-primary-300 focus-within:ring-2 focus-within:ring-primary-800 focus-within:ring-offset-2"
+          className="border-input  focus-within: bg-primaryapp-300/20 placeholder:text-primaryapp-300 focus-within:ring-primaryapp-800 flex h-10 w-full rounded-md border px-3 py-2 text-sm outline-none focus-within:ring-2 focus-within:ring-offset-2"
           {...register('carName')}
         />
         {errors.carName && (
@@ -67,7 +67,7 @@ export function CarForm() {
         <input
           type="text"
           id="carBrand"
-          className="border-input  focus-within: flex h-10 w-full rounded-md border bg-primary-200/20 px-3 py-2 text-sm outline-none placeholder:text-primary-300 focus-within:ring-2 focus-within:ring-primary-800 focus-within:ring-offset-2"
+          className="border-input  focus-within: bg-primaryapp-200/20 placeholder:text-primaryapp-300 focus-within:ring-primaryapp-800 flex h-10 w-full rounded-md border px-3 py-2 text-sm outline-none focus-within:ring-2 focus-within:ring-offset-2"
           {...register('carBrand')}
         />
         {errors.carBrand && (
@@ -84,7 +84,7 @@ export function CarForm() {
         <input
           type="text"
           id="carColor"
-          className="border-input  focus-within: flex h-10 w-full rounded-md border bg-primary-200/20 px-3 py-2 text-sm outline-none placeholder:text-primary-300 focus-within:ring-2 focus-within:ring-primary-800 focus-within:ring-offset-2"
+          className="border-input  focus-within: bg-primaryapp-200/20 placeholder:text-primaryapp-300 focus-within:ring-primaryapp-800 flex h-10 w-full rounded-md border px-3 py-2 text-sm outline-none focus-within:ring-2 focus-within:ring-offset-2"
           {...register('carColor')}
         />
         {errors.carColor && (
@@ -101,7 +101,7 @@ export function CarForm() {
         <input
           type="text"
           id="carYear"
-          className="border-input  focus-within: flex h-10 w-full rounded-md border bg-primary-200/20 px-3 py-2 text-sm outline-none placeholder:text-primary-300 focus-within:ring-2 focus-within:ring-primary-800 focus-within:ring-offset-2"
+          className="border-input  focus-within: bg-primaryapp-200/20 placeholder:text-primaryapp-300 focus-within:ring-primaryapp-800 flex h-10 w-full rounded-md border px-3 py-2 text-sm outline-none focus-within:ring-2 focus-within:ring-offset-2"
           {...register('carYear')}
         />
         {errors.carYear && (
@@ -113,7 +113,7 @@ export function CarForm() {
         {isSubmitting ? (
           <div className="w-full">
             <Button
-              variant="primary"
+              variant="primaryapp"
               type="submit"
               disabled={isSubmitting}
               style={{ width: '100%' }}
@@ -134,7 +134,7 @@ export function CarForm() {
             </Button>
 
             <Button
-              variant="primary"
+              variant="primaryapp"
               type="button"
               disabled={isSubmitting}
               onClick={handleResetInputs}

@@ -70,7 +70,7 @@ export function SignUp() {
                 type="username"
                 id="username"
                 placeholder="Seu nome"
-                className="border-input  focus-within: flex h-10 w-full rounded-md border bg-primary-200/20 px-3 py-2 text-sm outline-none placeholder:text-primary-300 focus-within:ring-2 focus-within:ring-primary-800 focus-within:ring-offset-2"
+                className="border-input  focus-within: bg-primaryapp-200/20 placeholder:text-primaryapp-300 focus-within:ring-primaryapp-800 flex h-10 w-full rounded-md border px-3 py-2 text-sm outline-none focus-within:ring-2 focus-within:ring-offset-2"
                 {...register('username')}
               />
             </div>
@@ -83,7 +83,7 @@ export function SignUp() {
                 type="email"
                 id="email"
                 placeholder="Seu e-mail"
-                className="border-input  focus-within: flex h-10 w-full rounded-md border bg-primary-200/20 px-3 py-2 text-sm outline-none placeholder:text-primary-300 focus-within:ring-2 focus-within:ring-primary-800 focus-within:ring-offset-2"
+                className="border-input  focus-within: bg-primaryapp-200/20 placeholder:text-primaryapp-300 focus-within:ring-primaryapp-800 flex h-10 w-full rounded-md border px-3 py-2 text-sm outline-none focus-within:ring-2 focus-within:ring-offset-2"
                 {...register('email')}
               />
             </div>
@@ -96,7 +96,7 @@ export function SignUp() {
                 type="password"
                 id="password"
                 placeholder="Sua senha deve ter no mínimo 6 caracteres"
-                className="border-input  focus-within: flex h-10 w-full rounded-md border bg-primary-200/20 px-3 py-2 text-sm outline-none placeholder:text-primary-300 focus-within:ring-2 focus-within:ring-primary-800 focus-within:ring-offset-2"
+                className="border-input  focus-within: bg-primaryapp-200/20 placeholder:text-primaryapp-300 focus-within:ring-primaryapp-800 flex h-10 w-full rounded-md border px-3 py-2 text-sm outline-none focus-within:ring-2 focus-within:ring-offset-2"
                 {...register('password')}
               />
             </div>

@@ -11,7 +11,7 @@ export function AddCars() {
           Adicionar carro
         </h1>
 
-        <p className="max-w-md text-center text-primary-500">
+        <p className="text-primaryapp-500 max-w-md text-center">
           Formulário para adição de carro ao sistema.
         </p>
       </div>

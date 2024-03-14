@@ -8,20 +8,20 @@ export function About() {
       <Helmet title="Sobre" />
 
       <div className="flex h-full flex-col items-center justify-center space-y-5 md:border-r">
-        <span className="rounded-lg bg-primary-300/30 px-3 py-2 text-sm font-bold">
+        <span className="bg-primaryapp-300/30 rounded-lg px-3 py-2 text-sm font-bold">
           💡 Sobre
         </span>
 
         <p className="text-center text-3xl font-bold">CRUD de HotWheels!</p>
 
-        <p className="max-w-md text-center text-primary-500">
+        <p className="text-primaryapp-500 max-w-md text-center">
           Aplicação construída para a cadeira de desenvolvimento de sistemas
           front-end da PUC-RS.
         </p>
       </div>
 
       <div className="flex flex-col items-center space-y-5">
-        <span className="rounded-lg bg-primary-300/30 px-3 py-2 text-sm font-bold">
+        <span className="bg-primaryapp-300/30 rounded-lg px-3 py-2 text-sm font-bold">
           ✔️ Tasks
         </span>
 

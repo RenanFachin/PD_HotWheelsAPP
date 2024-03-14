@@ -4,6 +4,7 @@ import { useContext } from 'react'
 import { CarsContext } from '@/contexts/carsContext'
 
 import { NavLink } from './nav-link'
+import { UserMenu } from './user-menu'
 
 export function Navbar() {
   const { cars } = useContext(CarsContext)
@@ -11,7 +12,7 @@ export function Navbar() {
   return (
     <div className="border-b">
       <div className="flex h-16 items-center gap-3 px-2 md:gap-10 md:px-8">
-        <Car className="hidden size-7 text-primary-900 md:block" />
+        <Car className="text-primaryapp-900 hidden size-7 md:block" />
 
         <hr className="hidden h-9 border-l border-slate-300 md:block" />
 
@@ -40,10 +41,12 @@ export function Navbar() {
         </nav>
 
         <div className="ml-auto flex items-center gap-2">
-          <NavLink to="/add-cars">
+          <UserMenu />
+
+          {/* <NavLink >
             <Plus className="size-4" />
             Adicionar
-          </NavLink>
+          </NavLink> */}
         </div>
       </div>
     </div>

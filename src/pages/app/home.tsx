@@ -8,7 +8,7 @@ export function Home() {
   return (
     <div className="mx-auto flex w-full max-w-5xl flex-col items-center space-y-5 py-12">
       <Helmet title="Home" />
-      <span className="rounded-lg bg-primary-300/30 px-3 py-2 text-sm font-bold">
+      <span className="bg-primaryapp-300/30 rounded-lg px-3 py-2 text-sm font-bold">
         🚀 Página inicial
       </span>
 
@@ -16,7 +16,7 @@ export function Home() {
         Bem-vindo ao CRUD de HotWheels!
       </p>
 
-      <p className="max-w-md text-center text-primary-500">
+      <p className="text-primaryapp-500 max-w-md text-center">
         Aplicação construída para a cadeira de desenvolvimento de sistemas
         front-end da PUC-RS
       </p>
@@ -32,7 +32,7 @@ export function Home() {
           </Button.Text>
         </Button>
 
-        <Button variant="primary">
+        <Button variant="primaryapp">
           <Button.Icon>
             <GitMergeIcon className="size-3" />
           </Button.Icon>

@@ -5,21 +5,21 @@ const buttonStyle = tv({
   base: 'flex items-center justify-center gap-2 rounded-md border px-3 py-2 shadow-sm group disabled:cursor-not-allowed outline-none focus-within:ring-2 focus-within:ring-yellow-500/40 transition-all disabled:pointer-events-none disabled:opacity-50',
   variants: {
     color: {
-      primary:
-        'text-primary-500 hover:text-primary-700 hover:border-primary-400',
+      primaryapp:
+        'text-primaryapp-500 hover:text-primaryapp-700 hover:border-primaryapp-400',
       secondary: 'bg-highlight-500/80 text-white hover:bg-highlight-300',
       'secondary-full':
         'bg-highlight-500/80 text-white hover:bg-highlight-300 w-full',
     },
   },
   defaultVariants: {
-    color: 'primary',
+    color: 'primaryapp',
   },
 })
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode
-  variant: 'primary' | 'secondary' | 'secondary-full'
+  variant: 'primaryapp' | 'secondary' | 'secondary-full'
 }
 
 function Button({ children, variant, ...props }: ButtonProps) {

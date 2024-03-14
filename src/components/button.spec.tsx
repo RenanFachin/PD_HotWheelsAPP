@@ -6,9 +6,9 @@ import { Button } from './button'
 
 const onClickButtonCallback = vi.fn()
 describe('Button Variants', () => {
-  it('should display right button variant layout (primary)', () => {
+  it('should display right button variant layout (primaryapp)', () => {
     const wrapper = render(
-      <Button variant="primary">
+      <Button variant="primaryapp">
         <Button.Icon>
           <Plus className="size-4" />
         </Button.Icon>
@@ -21,7 +21,7 @@ describe('Button Variants', () => {
     // console.log(rightVariant.outerHTML)
 
     expect(wrapper.getByText('GitHub')).toBeInTheDocument()
-    expect(rightVariant).toHaveClass('text-primary-500')
+    expect(rightVariant).toHaveClass('text-primaryapp-500')
   })
 
   it('should display right button variant layout (secondary)', () => {

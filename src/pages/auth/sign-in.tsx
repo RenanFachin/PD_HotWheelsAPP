@@ -1,7 +1,7 @@
 import { Car, ChevronRight, Loader } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 import { useForm } from 'react-hook-form'
-import { Link, useSearchParams } from 'react-router-dom'
+import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { toast } from 'sonner'
 import { z } from 'zod'
 
@@ -18,6 +18,7 @@ type SignInFormSchema = z.infer<typeof signInFormSchema>
 export function Signin() {
   // Recebendo o email por query parameter após o registro
   const [searchParams] = useSearchParams()
+  const navigate = useNavigate()
 
   const {
     register,
@@ -36,6 +37,8 @@ export function Signin() {
         email,
         password,
       })
+
+      navigate('/')
     } catch (error) {
       toast.error('Não foi possível se autenticar.')
     }
@@ -65,7 +68,7 @@ export function Signin() {
                 type="email"
                 id="email"
                 placeholder="Seu e-mail"
-                className="border-input  focus-within: flex h-10 w-full rounded-md border bg-primary-200/20 px-3 py-2 text-sm outline-none placeholder:text-primary-300 focus-within:ring-2 focus-within:ring-primary-800 focus-within:ring-offset-2"
+                className="border-input  focus-within: bg-primaryapp-200/20 placeholder:text-primaryapp-300 focus-within:ring-primaryapp-800 flex h-10 w-full rounded-md border px-3 py-2 text-sm outline-none focus-within:ring-2 focus-within:ring-offset-2"
                 {...register('email')}
               />
             </div>
@@ -78,7 +81,7 @@ export function Signin() {
                 type="password"
                 id="password"
                 placeholder="Sua senha"
-                className="border-input  focus-within: flex h-10 w-full rounded-md border bg-primary-200/20 px-3 py-2 text-sm outline-none placeholder:text-primary-300 focus-within:ring-2 focus-within:ring-primary-800 focus-within:ring-offset-2"
+                className="border-input  focus-within: bg-primaryapp-200/20 placeholder:text-primaryapp-300 focus-within:ring-primaryapp-800 flex h-10 w-full rounded-md border px-3 py-2 text-sm outline-none focus-within:ring-2 focus-within:ring-offset-2"
                 {...register('password')}
               />
             </div>
