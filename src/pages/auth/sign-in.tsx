@@ -49,7 +49,7 @@ export function Signin() {
     <>
       <Helmet title="Login" />
       <div className="p-3 md:p-8 ">
-        <div className="flex  flex-col items-center justify-center gap-6 px-4 md:w-[400px] md:px-0">
+        <div className="flex flex-col items-center justify-center gap-6 px-4 md:w-[400px] md:px-0">
           <div className="flex flex-col gap-2 text-center">
             <h1 className="text-xl font-semibold tracking-tight md:text-2xl">
               Acesse sua conta
