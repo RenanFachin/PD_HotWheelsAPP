@@ -25,7 +25,7 @@ export function AppLayout() {
   }, [])
 
   return (
-    <div className="bg-primaryapp-100 flex min-h-screen flex-col antialiased">
+    <div className="flex min-h-screen flex-col bg-primaryapp-100 antialiased">
       <Navbar />
 
       <div className="relative flex flex-1 flex-col gap-4 p-8 pt-6">

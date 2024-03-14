@@ -3,10 +3,10 @@ import { Link, Outlet } from 'react-router-dom'
 
 export function AuthLayout() {
   return (
-    <div className="grid min-h-screen grid-cols-7">
-      <div className="text-primaryapp-500 col-span-5 flex h-full flex-col justify-between border-r border-highlight-700/5 bg-highlight-300/5 p-10">
+    <div className="grid min-h-screen grid-cols-1 md:grid-cols-7">
+      <div className="hidden h-full flex-col justify-between border-r border-highlight-700/5 bg-highlight-300/5 p-10 text-primaryapp-500 md:col-span-5 md:flex">
         <div className="flex items-center gap-3 text-lg font-medium">
-          <Car className="text-primaryapp-900 hidden size-10 md:block" />
+          <Car className="hidden size-10 text-primaryapp-900 md:block" />
         </div>
 
         <footer className="text-sm">
@@ -21,7 +21,7 @@ export function AuthLayout() {
         </footer>
       </div>
 
-      <div className="relative col-span-2 flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-center md:col-span-2">
         <Outlet />
       </div>
     </div>

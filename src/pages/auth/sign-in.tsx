@@ -48,16 +48,16 @@ export function Signin() {
   return (
     <>
       <Helmet title="Login" />
-      <div className="p-8">
-        <div className="flex w-[400px] flex-col justify-center gap-6">
+      <div className="p-3 md:p-8 ">
+        <div className="flex  flex-col items-center justify-center gap-6 px-4 md:w-[400px] md:px-0">
           <div className="flex flex-col gap-2 text-center">
-            <h1 className="text-2xl font-semibold tracking-tight">
+            <h1 className="text-xl font-semibold tracking-tight md:text-2xl">
               Acesse sua conta
             </h1>
           </div>
 
           <form
-            className="space-y-4 border-b pb-5"
+            className="w-full space-y-4 border-b pb-5"
             onSubmit={handleSubmit(handleSignIn)}
           >
             <div className="space-y-1">
@@ -103,12 +103,12 @@ export function Signin() {
 
           <Link
             to="/sign-up"
-            className="group mt-5 flex items-center justify-between rounded-md border border-highlight-700/10 bg-highlight-500/5 px-6 py-4 hover:border-highlight-500 hover:brightness-125"
+            className="group mt-5 flex items-center justify-between rounded-md border border-highlight-700/10 bg-highlight-500/5 px-3 py-2 hover:border-highlight-500 hover:brightness-125 md:px-6 md:py-4"
           >
             <div className="flex items-center gap-4">
-              <Car className="size-6 text-highlight-300" />
+              <Car className="size-4 text-highlight-300 md:size-6" />
 
-              <div className="flex flex-col">
+              <div className="flex flex-col text-xs md:text-base">
                 <p>Não possui conta?</p>
                 <span className="text-highlight-300 group-hover:underline group-hover:underline-offset-2">
                   Criar conta
@@ -116,7 +116,7 @@ export function Signin() {
               </div>
             </div>
 
-            <ChevronRight className="size-6 text-highlight-300" />
+            <ChevronRight className="size-4 text-highlight-300 md:size-6" />
           </Link>
         </div>
       </div>
