@@ -68,7 +68,7 @@ export function Signin() {
                 type="email"
                 id="email"
                 placeholder="Seu e-mail"
-                className="border-input  focus-within: bg-primaryapp-200/20 placeholder:text-primaryapp-300 focus-within:ring-primaryapp-800 flex h-10 w-full rounded-md border px-3 py-2 text-sm outline-none focus-within:ring-2 focus-within:ring-offset-2"
+                className="focus-within:  flex h-10 w-full rounded-md border border-input bg-primaryapp-200/20 px-3 py-2 text-sm outline-none placeholder:text-primaryapp-300 focus-within:ring-2 focus-within:ring-primaryapp-800 focus-within:ring-offset-2"
                 {...register('email')}
               />
             </div>
@@ -81,7 +81,7 @@ export function Signin() {
                 type="password"
                 id="password"
                 placeholder="Sua senha"
-                className="border-input  focus-within: bg-primaryapp-200/20 placeholder:text-primaryapp-300 focus-within:ring-primaryapp-800 flex h-10 w-full rounded-md border px-3 py-2 text-sm outline-none focus-within:ring-2 focus-within:ring-offset-2"
+                className="focus-within:  flex h-10 w-full rounded-md border border-input bg-primaryapp-200/20 px-3 py-2 text-sm outline-none placeholder:text-primaryapp-300 focus-within:ring-2 focus-within:ring-primaryapp-800 focus-within:ring-offset-2"
                 {...register('password')}
               />
             </div>

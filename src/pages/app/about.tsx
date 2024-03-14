@@ -8,20 +8,20 @@ export function About() {
       <Helmet title="Sobre" />
 
       <div className="flex h-full flex-col items-center justify-center space-y-5 md:border-r">
-        <span className="bg-primaryapp-300/30 rounded-lg px-3 py-2 text-sm font-bold">
+        <span className="rounded-lg bg-primaryapp-300/30 px-3 py-2 text-sm font-bold">
           💡 Sobre
         </span>
 
         <p className="text-center text-3xl font-bold">CRUD de HotWheels!</p>
 
-        <p className="text-primaryapp-500 max-w-md text-center">
+        <p className="max-w-md text-center text-primaryapp-500">
           Aplicação construída para a cadeira de desenvolvimento de sistemas
           front-end da PUC-RS.
         </p>
       </div>
 
       <div className="flex flex-col items-center space-y-5">
-        <span className="bg-primaryapp-300/30 rounded-lg px-3 py-2 text-sm font-bold">
+        <span className="rounded-lg bg-primaryapp-300/30 px-3 py-2 text-sm font-bold">
           ✔️ Tasks
         </span>
 
@@ -60,6 +60,31 @@ export function About() {
           <Task>
             Na fase 1: Deve possuir funcionalidades dinâmicas (listagem, busca,
             criação e exclusão)
+          </Task>
+
+          <Task>
+            Na fase 2: Deve ser possível consumir dados e realizar requisições
+            de uma API
+          </Task>
+
+          <Task>
+            <span className="text-highlight-300">EXTRA:</span> Construir uma
+            nova API
+          </Task>
+
+          <Task>
+            <span className="text-highlight-300">EXTRA:</span> Criar
+            funcionalidades de criação de usuário e autenticação
+          </Task>
+
+          <Task>
+            <span className="text-highlight-300">EXTRA:</span> Utilizar JWT para
+            autenticar o usuário entre as requisições para API
+          </Task>
+
+          <Task>
+            <span className="text-highlight-300">EXTRA:</span> Deploy do
+            back-end e do front-end
           </Task>
         </div>
       </div>
