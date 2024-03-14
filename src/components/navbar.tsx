@@ -1,4 +1,4 @@
-import { Car, CarFront, Home, LayoutGrid, Plus } from 'lucide-react'
+import { Car, CarFront, Home, LayoutGrid } from 'lucide-react'
 import { useContext } from 'react'
 
 import { CarsContext } from '@/contexts/carsContext'

@@ -30,6 +30,7 @@ interface CarsContextType {
   handleSearch: (event: ChangeEvent<HTMLInputElement>) => void
   handleDeleteCar: (id: number) => void
   handleUpdateCar: (updatedCar: Car) => void
+  fetchCars: () => Promise<void>
 }
 
 export const CarsContext = createContext({} as CarsContextType)
@@ -44,16 +45,17 @@ export function CarsContextProvider({ children }: CarsContextProviderProps) {
 
   // BUSCANDO DADOS NA API
   async function fetchCars() {
-    const response = await api.get<Car[]>('/cars')
+    const { data } = await api.get('/list-car/')
 
-    setCars(response.data)
+    setCars(data.cars)
+    // console.log(cars)
   }
 
   // ADICIONNANDO UM REGISTRO -> FUNCIONANDO
   async function handleAddCar(data: CarFormSchema) {
     try {
       const newCar = {
-        id: new Date().valueOf(),
+        // id: new Date().valueOf(),
         name: data.carName,
         year: data.carYear,
         brand: data.carBrand,
@@ -100,9 +102,9 @@ export function CarsContextProvider({ children }: CarsContextProviderProps) {
   }
 
   // BUSCANDO OS DADOS DA API -> FUNCIONANDO
-  useEffect(() => {
-    fetchCars()
-  }, [])
+  // useEffect(() => {
+  //   fetchCars()
+  // }, [])
 
   return (
     <CarsContext.Provider
@@ -113,6 +115,7 @@ export function CarsContextProvider({ children }: CarsContextProviderProps) {
         handleDeleteCar,
         handleAddCar,
         handleUpdateCar,
+        fetchCars
       }}
     >
       {children}

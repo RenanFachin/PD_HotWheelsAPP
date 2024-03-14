@@ -1,5 +1,8 @@
 import { ChevronDown, LogOut, Plus, UserRound } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { useContext } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+
+import { AuthContext } from '@/contexts/auth-context'
 
 import {
   DropdownMenu,
@@ -11,13 +14,21 @@ import {
 } from './ui/dropdown-menu'
 
 export function UserMenu() {
+  const navigate = useNavigate()
+  const { user, signOut } = useContext(AuthContext)
+
+  function handleSignOut() {
+    signOut()
+    navigate('/sign-in')
+  }
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <button className="flex items-center gap-2 rounded-md border px-3 py-1">
           <UserRound className="size-4" />
 
-          <span>Renan</span>
+          <span>{user?.name}</span>
 
           <ChevronDown className="size-4" />
         </button>
@@ -25,9 +36,9 @@ export function UserMenu() {
 
       <DropdownMenuContent align="end" className="w-56">
         <DropdownMenuLabel className="flex flex-col">
-          <span>Renan Fachin</span>
+          <span>{user?.name}</span>
           <span className="text-muted-foreground text-xs font-normal">
-            renan@email.com
+            {user?.email}
           </span>
         </DropdownMenuLabel>
 
@@ -43,7 +54,10 @@ export function UserMenu() {
           <Link to="/add-cars">Adicionar carro</Link>
         </DropdownMenuItem>
 
-        <DropdownMenuItem className="text-highlight-500">
+        <DropdownMenuItem
+          className="text-highlight-500"
+          onClick={handleSignOut}
+        >
           <LogOut className="mr-2 size-4" />
           <span>Sair</span>
         </DropdownMenuItem>

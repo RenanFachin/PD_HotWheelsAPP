@@ -1,4 +1,5 @@
 import { Car, ChevronRight, Loader } from 'lucide-react'
+import { useContext } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useForm } from 'react-hook-form'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
@@ -6,6 +7,7 @@ import { toast } from 'sonner'
 import { z } from 'zod'
 
 import { Button } from '@/components/button'
+import { AuthContext } from '@/contexts/auth-context'
 import { api } from '@/lib/axios'
 
 const signInFormSchema = z.object({
@@ -20,6 +22,8 @@ export function Signin() {
   const [searchParams] = useSearchParams()
   const navigate = useNavigate()
 
+  const { signIn } = useContext(AuthContext)
+
   const {
     register,
     handleSubmit,
@@ -30,13 +34,10 @@ export function Signin() {
     },
   })
 
-  async function handleSignIn({ email, password }: SignInFormSchema) {
+  async function handleSignIn(data: SignInFormSchema) {
     // await new Promise((resolve) => setTimeout(resolve, 2000))
     try {
-      await api.post('/sessions', {
-        email,
-        password,
-      })
+      await signIn(data)
 
       navigate('/')
     } catch (error) {

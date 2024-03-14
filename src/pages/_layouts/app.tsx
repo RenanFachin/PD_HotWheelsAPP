@@ -1,10 +1,29 @@
-import { Outlet } from 'react-router-dom'
+import Cookies from 'js-cookie'
+import { useContext, useEffect } from 'react'
+import { Outlet, useNavigate } from 'react-router-dom'
 
 import { AddCarWidget } from '@/components/add-car-widget'
 import { GithubWidget } from '@/components/github-widget'
 import { Navbar } from '@/components/navbar'
+import { CarsContext } from '@/contexts/carsContext'
 
 export function AppLayout() {
+  const navigate = useNavigate()
+  const { fetchCars } = useContext(CarsContext)
+
+  useEffect(() => {
+    const { 'token-hotwheels': token } = Cookies.get()
+
+    // Caso exista, buscar novamente os dados do usuário na api
+    if (!token) {
+      navigate('/sign-in', { replace: true })
+    }
+
+    if (token) {
+      fetchCars()
+    }
+  }, [])
+
   return (
     <div className="bg-primaryapp-100 flex min-h-screen flex-col antialiased">
       <Navbar />
